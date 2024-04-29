@@ -7,7 +7,6 @@ from django.views.generic import TemplateView
 
 app_name = 'djangoapp'
 urlpatterns = [
-    path('about/', TemplateView.as_view(template_name="About.html")),
     # # path for registration
 
     # path for login
