@@ -124,3 +124,7 @@ img{
     text-align:center;
     box-shadow: 2px 2px 3px #999;  
 }
+
+p {
+    line-height: 0.8; /* Adjust this value as needed */
+  }
