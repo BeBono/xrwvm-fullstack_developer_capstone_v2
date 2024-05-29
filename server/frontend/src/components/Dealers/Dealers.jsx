@@ -105,8 +105,8 @@ const Dealers = () => {
         console.log('Yes status 200 mine:');  //************ mine
       });
 
-      setStates(Array.from(new Set(states)))
-      setDealersList(all_dealers)
+      setStates(Array.from(new Set(states)))  //******Be care full with this line.
+      setDealersList(retobj)  //***************changed for mine
     } else {
         console.error("Failed to fetch dealers");
     }
