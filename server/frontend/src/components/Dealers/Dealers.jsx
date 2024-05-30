@@ -62,7 +62,6 @@ import Header from '../Header/Header';
 import review_icon from "../assets/reviewicon.png"
 
 const Dealers = () => {
-    console.log("Test");
   const [dealersList, setDealersList] = useState([]);
   // let [state, setState] = useState("")
   let [states, setStates] = useState([])
@@ -76,13 +75,16 @@ const Dealers = () => {
   const dealer_url_by_state =  "https://albertocarb1-3030.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/fetchDealers";
  
   const filterDealers = async (state) => {
-    dealer_url_by_state = dealer_url_by_state+state;
-    const res = await fetch(dealer_url_by_state, {
+    console.log('mycalling');  //************ my test - debugging- Vrifying if "filterDealers" is being invoked by "Onchange" functiion.
+    
+    var dealer_by_state = dealer_url_by_state+"/"+state;
+    const res = await fetch(dealer_by_state, {
       method: "GET"
     });
+    console.log('filter status', res.status)
     const retobj = await res.json();
-    if(retobj.status === 200) {
-      let state_dealers = Array.from(retobj.dealers)
+        if('filter', res.status === 200) {
+      let state_dealers = Array.from(retobj)
       setDealersList(state_dealers)
     }
   }
@@ -92,21 +94,20 @@ const Dealers = () => {
       method: "GET"
     });
     const retobj = await res.json();
-    console.log('Fetched data:', retobj);  //************ mine
-    console.log('3th message');  //************ mine
-    console.log('status', res.status); 
+    console.log('status', res.status);  //************ my test - debugging
 
     if(res.status === 200) {
-        
-    //   let all_dealers = Array.from(retobj.dealers)
+       
+      
+    //Immutable Data Structures: In React, it's a good practice to treat state as immutable. Creating a new array ensures that state updates do not mutate existing state directly, which helps in maintaining predictable component behavior and improving performance.
+      let all_dealers = Array.from(retobj)  //Take a shallow copy of the original Dealers array to ensure that any changes to the new array do not affect the original array.
       let states = [];
-        retobj.forEach((dealer)=>{
+      all_dealers.forEach((dealer)=>{
         states.push(dealer.state)
-        console.log('Yes status 200 mine:');  //************ mine
       });
 
-      setStates(Array.from(new Set(states)))  //******Be care full with this line.
-      setDealersList(retobj)  //***************changed for mine
+      setStates(Array.from(new Set(states)))  //To update the states list.
+      setDealersList(all_dealers)  //***************changed for mine
     } else {
         console.error("Failed to fetch dealers");
     }
