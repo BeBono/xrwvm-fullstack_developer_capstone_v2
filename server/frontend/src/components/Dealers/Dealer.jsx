@@ -16,22 +16,67 @@ const Dealer = () => {
   const [unreviewed, setUnreviewed] = useState(false);
   const [postReview, setPostReview] = useState(<></>)
 
-  let curr_url = window.location.href;
-  let root_url = curr_url.substring(0,curr_url.indexOf("dealer"));
+//   let curr_url = window.location.href;
+//   let root_url = curr_url.substring(0,curr_url.indexOf("dealer"));
+//   let params = useParams();
+//   let id =params.id;
+//   let dealer_url = root_url+`djangoapp/dealer/${id}`;
+//   let reviews_url = root_url+`djangoapp/reviews/dealer/${id}`;
+//   let post_review = root_url+`postreview/${id}`;
+  
+//   const get_dealer = async ()=>{
+//     const res = await fetch(dealer_url, {
+//       method: "GET"
+//     });
+//     const retobj = await res.json();
+    
+//     if(retobj.status === 200) {
+//       let dealerobjs = Array.from(retobj.dealer)
+//       setDealer(dealerobjs[0])
+//     }
+//   }
+
+//   const get_reviews = async ()=>{
+//     const res = await fetch(reviews_url, {
+//       method: "GET"
+//     });
+//     const retobj = await res.json();
+    
+//     if(retobj.status === 200) {
+//       if(retobj.reviews.length > 0){
+//         setReviews(retobj.reviews)
+//       } else {
+//         setUnreviewed(true);
+//       }
+//     }
+//   }
+
+
+// My version
+
+let curr_url = "https://albertocarb1-3030.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai"
+  
   let params = useParams();
   let id =params.id;
-  let dealer_url = root_url+`djangoapp/dealer/${id}`;
-  let reviews_url = root_url+`djangoapp/reviews/dealer/${id}`;
-  let post_review = root_url+`postreview/${id}`;
+ 
+  let dealer_url = curr_url+`/fetchDealers/${id}`;
+
+  
+  let reviews_url = curr_url+`/fetchReviews/dealer/${id}`;
+
+  let post_review = curr_url+`postreview/${id}`;
   
   const get_dealer = async ()=>{
     const res = await fetch(dealer_url, {
       method: "GET"
     });
+
     const retobj = await res.json();
+
+    console.log("Fetching object dealer", retobj) //*******debugging
     
-    if(retobj.status === 200) {
-      let dealerobjs = Array.from(retobj.dealer)
+    if(res.status === 200) {
+      let dealerobjs = Array.from(retobj.dealer)  
       setDealer(dealerobjs[0])
     }
   }
@@ -41,15 +86,20 @@ const Dealer = () => {
       method: "GET"
     });
     const retobj = await res.json();
+
+    console.log("Fetching object review", retobj) //*******debugging
     
-    if(retobj.status === 200) {
-      if(retobj.reviews.length > 0){
-        setReviews(retobj.reviews)
+    if(res.status === 200) {
+      if(retobj.review.length > 0){
+        setReviews(retobj.review)
       } else {
         setUnreviewed(true);
       }
     }
   }
+
+
+  //
 
   const senti_icon = (sentiment)=>{
     let icon = sentiment === "positive"?positive_icon:sentiment==="negative"?negative_icon:neutral_icon;
