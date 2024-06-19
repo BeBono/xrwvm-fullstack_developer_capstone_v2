@@ -54,12 +54,12 @@ const Dealer = () => {
 
 // My version
 
-let curr_url = "https://albertocarb1-3030.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai"
+let curr_url = "https://albertocarb1-3030.theiadockernext-0-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai"
   
   let params = useParams();
   let id =params.id;
  
-  let dealer_url = curr_url+`/fetchDealers/${id}`;
+  let dealer_url = curr_url+`/fetchDealer/${id}`;
 
   
   let reviews_url = curr_url+`/fetchReviews/dealer/${id}`;
@@ -76,7 +76,8 @@ let curr_url = "https://albertocarb1-3030.theiadockernext-1-labs-prod-theiak8s-4
     console.log("Fetching object dealer", retobj) //*******debugging
     
     if(res.status === 200) {
-      let dealerobjs = Array.from(retobj.dealer)  
+      console.log("Fetching name", retobj[0].full_name) //*******debugging   
+      let dealerobjs = Array.from(retobj)  
       setDealer(dealerobjs[0])
     }
   }
@@ -90,8 +91,10 @@ let curr_url = "https://albertocarb1-3030.theiadockernext-1-labs-prod-theiak8s-4
     console.log("Fetching object review", retobj) //*******debugging
     
     if(res.status === 200) {
+        console.log("Yes review st 200")
       if(retobj.review.length > 0){
-        setReviews(retobj.review)
+        console.log("Yes review > 0") //******DEBUG THIS
+        setReviews(retobj)
       } else {
         setUnreviewed(true);
       }
