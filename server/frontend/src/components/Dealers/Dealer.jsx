@@ -16,6 +16,8 @@ const Dealer = () => {
   const [unreviewed, setUnreviewed] = useState(false);
   const [postReview, setPostReview] = useState(<></>)
 
+
+  //Original version
 //   let curr_url = window.location.href;
 //   let root_url = curr_url.substring(0,curr_url.indexOf("dealer"));
 //   let params = useParams();
@@ -50,9 +52,10 @@ const Dealer = () => {
 //       }
 //     }
 //   }
+// End Origial version.
 
 
-// My version
+// My version:
 
 let curr_url = "https://albertocarb1-3030.theiadockernext-0-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai"
   
@@ -73,7 +76,7 @@ let curr_url = "https://albertocarb1-3030.theiadockernext-0-labs-prod-theiak8s-4
 
     const retobj = await res.json();
 
-    console.log("Fetching object dealer", retobj) //*******debugging
+    console.log("Fetching object dealer", retobj) //*******debugging. See in browser tools
     
     if(res.status === 200) {
       console.log("Fetching name", retobj[0].full_name) //*******debugging   
@@ -92,8 +95,8 @@ let curr_url = "https://albertocarb1-3030.theiadockernext-0-labs-prod-theiak8s-4
     
     if(res.status === 200) {
         console.log("Yes review st 200")
-      if(retobj.review.length > 0){
-        console.log("Yes review > 0") //******DEBUG THIS
+      if(retobj[0].review.length > 0){
+        console.log("Yes review > 0") //******Debugging
         setReviews(retobj)
       } else {
         setUnreviewed(true);
@@ -128,7 +131,7 @@ return(
       <h4  style={{color:"grey"}}>{dealer['city']},{dealer['address']}, Zip - {dealer['zip']}, {dealer['state']} </h4>
       </div>
       <div class="reviews_panel">
-      {reviews.length === 0 && unreviewed === false ? (
+      {reviews.length === 0 && unreviewed === false ? (  //***DEBUG THIS
         <text>Loading Reviews....</text>
       ):  unreviewed === true? <div>No reviews yet! </div> :
       reviews.map(review => (
