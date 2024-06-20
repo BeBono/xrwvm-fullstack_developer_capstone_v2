@@ -57,7 +57,7 @@ const Dealer = () => {
 
 // My version:
 
-let curr_url = "https://albertocarb1-3030.theiadockernext-0-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai"
+let curr_url = "https://albertocarb1-3030.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai"
   
   let params = useParams();
   let id =params.id;

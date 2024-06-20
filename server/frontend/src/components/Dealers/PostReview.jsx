@@ -13,13 +13,23 @@ const PostReview = () => {
   const [date, setDate] = useState("");
   const [carmodels, setCarmodels] = useState([]);
 
-  let curr_url = window.location.href;
-  let root_url = curr_url.substring(0,curr_url.indexOf("postreview"));
+//   let curr_url = window.location.href;
+//   let root_url = curr_url.substring(0,curr_url.indexOf("postreview"));
+//   let params = useParams();
+//   let id =params.id;
+//   let dealer_url = root_url+`djangoapp/dealer/${id}`;
+//   let review_url = root_url+`djangoapp/add_review`;
+//   let carmodels_url = root_url+`djangoapp/get_cars`;
+
+
+  let curr_url = "https://albertocarb1-3030.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/"
   let params = useParams();
   let id =params.id;
-  let dealer_url = root_url+`djangoapp/dealer/${id}`;
-  let review_url = root_url+`djangoapp/add_review`;
-  let carmodels_url = root_url+`djangoapp/get_cars`;
+  let dealer_url = curr_url+`fetchDealer/${id}`;
+  let review_url = curr_url+`add_review`;  ///??????????????????????
+  let carmodels_url = curr_url+`get_cars`;
+// curr_url+`insert_review/${id}`;
+
 
   const postreview = async ()=>{
     let name = sessionStorage.getItem("firstname")+" "+sessionStorage.getItem("lastname");
