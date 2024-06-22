@@ -18,8 +18,9 @@ const Dealer = () => {
 
 
   //Original version
-//   let curr_url = window.location.href;
-//   let root_url = curr_url.substring(0,curr_url.indexOf("dealer"));
+  let curr_url= window.location.href;  //App main URL
+  let root_url = curr_url.substring(0,curr_url.indexOf("dealer")); //Extract before "dealer"  generated in the main URL.
+  console.log("Root URL", root_url)
 //   let params = useParams();
 //   let id =params.id;
 //   let dealer_url = root_url+`djangoapp/dealer/${id}`;
@@ -57,17 +58,14 @@ const Dealer = () => {
 
 // My version:
 
-let curr_url = "https://albertocarb1-3030.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai"
+let curr_url2 = "https://albertocarb1-3030.theiadockernext-0-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai"
   
   let params = useParams();
   let id =params.id;
  
-  let dealer_url = curr_url+`/fetchDealer/${id}`;
-
-  
-  let reviews_url = curr_url+`/fetchReviews/dealer/${id}`;
-
-  let post_review = curr_url+`postreview/${id}`;
+  let dealer_url = curr_url2+`/fetchDealer/${id}`;
+  let reviews_url = curr_url2+`/fetchReviews/dealer/${id}`;
+  let post_review = root_url +`postreview/${id}`;
   
   const get_dealer = async ()=>{
     const res = await fetch(dealer_url, {
