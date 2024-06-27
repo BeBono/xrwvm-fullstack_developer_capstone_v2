@@ -19,9 +19,9 @@ const PostReview = () => {
   console.log("Root", root_url) //*******************************Debugging
   let params = useParams();
   let id =params.id;
-  let dealer_url = root_url+`djangoapp/dealer/${id}`;
-  let review_url = root_url+`djangoapp/add_review`;
-  let carmodels_url = root_url+`djangoapp/get_cars`;
+  let dealer_url = root_url+`dealer/${id}`;
+  let review_url = root_url+`add_review`; //Debugging 1. I need to review this point.
+  let carmodels_url = root_url+`get_cars`;
 
 
 //   let curr_url = "https://albertocarb1-3030.theiadockernext-0-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/"
@@ -60,6 +60,7 @@ const PostReview = () => {
     });
 
     console.log(jsoninput);
+    console.log("My /add_review URL", review_url)
     const res = await fetch(review_url, {
       method: "POST",
       headers: {
