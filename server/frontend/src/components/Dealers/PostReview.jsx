@@ -69,7 +69,7 @@ const PostReview = () => {
   });
 
   const json = await res.json();
-  if (json.status === 200) {
+  if (json.status === 200) {   //Possible ISSUE****************************+
       window.location.href = window.location.origin+"/dealer/"+id;
   }
 
