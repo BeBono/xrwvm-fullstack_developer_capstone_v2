@@ -58,14 +58,20 @@ const Dealer = () => {
 
 // My version:
 
-let curr_url2 = "https://albertocarb1-3030.theiadockernext-0-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai"
+// let curr_url2 = "https://albertocarb1-3030.theiadockernext-0-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai"  //**Before
   
   let params = useParams();
   let id =params.id;
  
-  let dealer_url = curr_url2+`/fetchDealer/${id}`;
-  let reviews_url = curr_url2+`/fetchReviews/dealer/${id}`;
+//   let dealer_url = curr_url2+`/fetchDealer/${id}`;   //**Before, my version.
+  let dealer_url = root_url+`dealerdetail/${id}`; //Fetch an object called "dealer".
+  console.log("myDealer_Detail", dealer_url)
+
+//   let reviews_url = curr_url2+`/fetchReviews/dealer/${id}`; //**Before, my version.
+  let reviews_url = root_url+`reviews/dealer/${id}`; //Fetch an object called "dealer".
+
   let post_review = root_url +`postreview/${id}`;
+  
   
   const get_dealer = async ()=>{
     const res = await fetch(dealer_url, {
@@ -74,11 +80,11 @@ let curr_url2 = "https://albertocarb1-3030.theiadockernext-0-labs-prod-theiak8s-
 
     const retobj = await res.json();
 
-    console.log("Fetching object dealer", retobj) //*******debugging. See in browser tools
+    console.log("Fetching the array from object called dealer", retobj.dealer) //*******debugging. See in browser tools
     
     if(res.status === 200) {
-      console.log("Fetching name", retobj[0].full_name) //*******debugging   
-      let dealerobjs = Array.from(retobj)  
+      console.log("Fetching name", retobj.dealer[0].full_name) //*******debugging   
+      let dealerobjs = Array.from(retobj.dealer)   //Copyin from original array
       setDealer(dealerobjs[0])
     }
   }
@@ -89,13 +95,13 @@ let curr_url2 = "https://albertocarb1-3030.theiadockernext-0-labs-prod-theiak8s-
     });
     const retobj = await res.json();
 
-    console.log("Fetching object review", retobj) //*******debugging
+    console.log("Fetching object called reviews", retobj) //*******debugging
     
     if(res.status === 200) {
         console.log("Yes review st 200")
-      if(retobj[0].review.length > 0){
+      if(retobj.reviews[0].review.length > 0){
         console.log("Yes review > 0") //******Debugging
-        setReviews(retobj)
+        setReviews(retobj.reviews)
       } else {
         setUnreviewed(true);
       }

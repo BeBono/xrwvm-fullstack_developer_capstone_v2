@@ -20,7 +20,7 @@ const PostReview = () => {
   let params = useParams();
   let id =params.id;
   let dealer_url = root_url+`dealer/${id}`;
-  let review_url = root_url+`add_review`; //Debugging 1. I need to review this point.
+  let review_url = root_url+`add_review`; 
   let carmodels_url = root_url+`get_cars`;
 
 
