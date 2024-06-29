@@ -19,18 +19,11 @@ const PostReview = () => {
   console.log("Root", root_url) //*******************************Debugging
   let params = useParams();
   let id =params.id;
-  let dealer_url = root_url+`dealer/${id}`;
-  let review_url = root_url+`add_review`; 
-  let carmodels_url = root_url+`get_cars`;
+  let dealer_url = root_url+`dealer/${id}`; //Currenly URL + end - point fetching data from views.py and restapi.py in djangoproject folder
+  let review_url = root_url+`add_review`; //Currenly URL + end - point fetching data from views.py and restapi.py in djangoproject folder
+  let carmodels_url = root_url+`get_cars`; //Currenly URL + end - point populating and fetching data from views.py and restapi.py in djangoproject folder
 
 
-//   let curr_url = "https://albertocarb1-3030.theiadockernext-0-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/"
-//   let params = useParams();
-//   let id =params.id;
-//   let dealer_url = curr_url+`fetchDealer/${id}`;
-//   let review_url = curr_url+`add_review`;  ///??????????????????????
-//   let carmodels_url = curr_url+`get_cars`;
-// curr_url+`insert_review/${id}`;
 
 
   const postreview = async ()=>{
@@ -70,7 +63,7 @@ const PostReview = () => {
   });
 
   const json = await res.json();
-  if (json.status === 200) {   //Possible ISSUE****************************+
+  if (json.status === 200) {   
       window.location.href = window.location.origin+"/dealer/"+id;
   }
 

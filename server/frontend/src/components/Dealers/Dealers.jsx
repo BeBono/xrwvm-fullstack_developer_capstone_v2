@@ -1,59 +1,3 @@
-// import React, { useState, useEffect } from 'react';
-// import Header from '../Header/Header';
-// import review_icon from "../assets/reviewicon.png";
-
-// const Dealers = () => {
-//   const [dealersList, setDealersList] = useState([]);
-
-//   const dealer_url = "https://albertocarb1-3030.theiadockernext-0-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/fetchDealers";
-
-//   const get_dealers = async () => {
-//     try {
-//       const res = await fetch(dealer_url, {
-//         method: "GET"
-//       });
-
-//       const retobj = await res.json();
-//       console.log('Fetched data:', retobj); // Log the entire response for debugging
-
-//       if (res.ok) {
-//         setDealersList(retobj); // Assuming the API returns the array directly
-//       } else {
-//         console.error("Failed to fetch dealers:", retobj);
-//       }
-//     } catch (error) {
-//       console.error("Error fetching dealers:", error);
-//     }
-//   };
-
-//   useEffect(() => {
-//     get_dealers();
-//   }, []);
-
-//   return (
-//     <div>
-//       <Header />
-//       <h1>Dealers JSON:</h1>
-//       <pre>{JSON.stringify(dealersList, null, 2)}</pre>
-//       <h2>Dealers List:</h2>
-//       <ul>
-//         {dealersList.map((dealer) => (
-//           <li key={dealer._id}>
-//             <div>{dealer.full_name}</div>
-//             <div>{dealer.address}, {dealer.city}, {dealer.state} {dealer.zip}</div>
-//             <div>Latitude: {dealer.lat}, Longitude: {dealer.long}</div>
-//           </li>
-//         ))}
-//       </ul>
-//     </div>
-//   );
-// };
-
-// export default Dealers;
-
-
-
-// Original version
 
 import React, { useState, useEffect } from 'react';
 import "./Dealers.css";
@@ -66,7 +10,7 @@ const Dealers = () => {
   // let [state, setState] = useState("")
   let [states, setStates] = useState([])
 
-  // let root_url = window.location.origin
+ 
   const dealer_url ="https://albertocarb1-3030.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/fetchDealers";
 //   const dealer_url = "https://albertocarb1-3030.theiadockernext-0-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/fetchDealers";
                   
