@@ -6,7 +6,6 @@ from django.contrib.auth.models import User
 # from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib.auth import logout
 # from django.contrib import messages
-# from datetime import datetime
 
 
 from django.http import JsonResponse
@@ -15,9 +14,9 @@ import logging
 import json
 from django.views.decorators.csrf import csrf_exempt
 from .models import CarMake, CarModel
-from .populate import initiate      #*******************Added by mine
-from .restapis import analyze_review_sentiments, post_review, get_request
-
+from .populate import initiate      #*****Added by mine
+from .restapis import analyze_review_sentiments
+from .restapis import post_review, get_request
 
 # Get an instance of a logger
 logger = logging.getLogger(__name__)
