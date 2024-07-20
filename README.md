@@ -1,6 +1,8 @@
 # coding-project-template
 
-***** 1/3 Start Theia Lab: ****
+***** 1. Start Theia Lab: ****
+
+*** 1/3 
 
 cd xrwvm-fullstack_developer_capstone_v2/server
 
@@ -20,35 +22,40 @@ python3 manage.py runserver
 
 
 
-** 2/3 Run frontend with React
+** 2/3 Run frontend with React:
+
 cd /home/project/xrwvm-fullstack_developer_capstone_v2/server/frontend
 npm install  /run the following command to install all the neccesary dependencies.
 npm run build    // Run the following command to build the client.
 
 ** 3/3 Re-create superuser:
+
 python3 manage.py createsuperuser
 
-** 4/ Populate de CarMake and CarModel (local database SQLite) 
+***** 2. Populate de CarMake and CarModel (local database SQLite):
+
 "/get_cars"
 
 
-****Run Database End-points:
+***** 3. Run Database End-points:
 
 cd /home/project/xrwvm-fullstack_developer_capstone_v2/server/database
 
 **Start end-points / MondoDB:
-1/2
+
+1/2:
 Run the following command to build the Docker images
 docker build . -t nodeapp
 
-2/2 Run the following command to run the server:
+2/2: Run the following command to run the server:
 docker-compose up
 
 3/ Lunch on port 3030 / (Example)
 https://albertocarb1-3030.theiadockernext-0-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/
 https://albertocarb1-3030.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/
 
-End-points:
+End-points fecthed:
+
 /fetchDealers
 /fetchDealers/:state
 /fetchDealer/:id
@@ -56,7 +63,9 @@ End-points:
 /fetchReviews
 /fetchReviews/dealer/:id
 
-**Start sentiment analyzer (IBM Cloud Engine) as a microservice (port 5000) / We need this function to be able to see the reviews with the ico sentiment::
+***** 4. Start sentiment analyzer (IBM Cloud Engine) as a microservice (port 5000):
+
+/ We need this function to be able to see the reviews with the ico sentiment.
 
 cd xrwvm-fullstack_developer_capstone_v2/server/djangoapp/microservices
 docker build . -t us.icr.io/${SN_ICR_NAMESPACE}/senti_analyzer
@@ -66,8 +75,10 @@ URL instance (example):
 https://sentianalyzer.1hcuc1j7fh38.us-south.codeengine.appdomain.cloud
 https://sentianalyzer.1iebwhj96cww.us-south.codeengine.appdomain.cloud
 
-Notes:
+***** 5. Notes:
+
 Update always URLs:
+
 -djangoapp/.env
 -frontend/src/components/Dealers/Dealers.jsx
 -djangoproj/settings.py (URLs allowed to CRSF)
