@@ -140,9 +140,11 @@ def get_dealer_reviews(request, dealer_id):
     if(dealer_id):
         endpoint = "/fetchReviews/dealer/"+str(dealer_id)
         reviews = get_request(endpoint)
+        print(">>>>>>>>>>>>>>>my array", reviews)
         for review_detail in reviews:
             response = analyze_review_sentiments(review_detail['review'])
             print(response)
+            print(">>>>>>>>>>my:", response)
             review_detail['sentiment'] = response['sentiment']
         return JsonResponse({"status": 200, "reviews": reviews})
     else:

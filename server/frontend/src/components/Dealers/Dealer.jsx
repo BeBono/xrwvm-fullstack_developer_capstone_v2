@@ -90,12 +90,13 @@ const Dealer = () => {
   }
 
   const get_reviews = async ()=>{
+    console.log("Testing Reviews")
     const res = await fetch(reviews_url, {
       method: "GET"
     });
     const retobj = await res.json();
 
-    console.log("Fetching object called reviews", retobj) //*******debugging
+    console.log("Fetching object called reviews", retobj) //********debugging
     
     if(res.status === 200) {
         console.log("Yes review st 200")

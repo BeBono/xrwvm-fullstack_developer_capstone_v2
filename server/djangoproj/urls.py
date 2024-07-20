@@ -63,7 +63,8 @@ urlpatterns = [
         route='add_review',
         view=views.add_review,
         name='add_review'
-    ), # It path submit the new review.
+    ), 
+    # It path submit the new review.
     path(
         'dealers/',
         TemplateView.as_view(template_name="index.html")
@@ -72,10 +73,11 @@ urlpatterns = [
         'dealer/<int:dealer_id>',
         TemplateView.as_view(template_name="index.html")
     ),
+     # This path render the postreview page (it does not posting yet)
     path(
         'postreview/<int:dealer_id>',
         TemplateView.as_view(template_name="index.html")
-    ), # This path render the postreview page (it does not posting yet)
+    ),
 
     path('', TemplateView.as_view(template_name="Home.html")),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
