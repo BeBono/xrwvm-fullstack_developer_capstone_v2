@@ -27,6 +27,7 @@ logger = logging.getLogger(__name__)
 # Create a `login_request` view to handle sign in request
 @csrf_exempt
 def login_user(request):
+    
     # Get username and password from request.POST dictionary
     data = json.loads(request.body)
     username = data['userName']
@@ -42,7 +43,6 @@ def login_user(request):
 
 # Create a `logout_request` view to handle sign out request
 def logout_request(request):
-
     
     logout(request)
     data = {"userName": ""}
@@ -50,9 +50,7 @@ def logout_request(request):
 
 # Create a `registration` view to handle sign up request
 @csrf_exempt
-
 def registration(request):
-
 
     context = {}
     data = json.loads(request.body)
@@ -94,7 +92,6 @@ def registration(request):
 #Utilized to poppulate CarMake and CarModel:
 def get_cars(request):
 
-
     count = CarMake.objects.filter().count()
     print(count)
     if(count == 0):
@@ -115,7 +112,6 @@ def get_cars(request):
 # particular state if state is passed
 def get_dealerships(request, state="All"):
 
-
     if(state == "All"):
         endpoint = "/fetchDealers"
     else:
@@ -125,7 +121,6 @@ def get_dealerships(request, state="All"):
 
 
 def get_dealer_details(request, dealer_id):
-
 
     if(dealer_id):
         endpoint = "/fetchDealer/"+str(dealer_id)
@@ -137,7 +132,6 @@ def get_dealer_details(request, dealer_id):
 
 # Create a `get_dealer_reviews` view to render the reviews of a dealer
 def get_dealer_reviews(request, dealer_id):
-
 
     # if dealer id has been provided
     if(dealer_id):
@@ -152,7 +146,6 @@ def get_dealer_reviews(request, dealer_id):
         return JsonResponse({"status": 400,"message": "Bad Request"})
 
 def add_review(request):
-
 
     print("myViews")
     if(request.user.is_anonymous == False):
