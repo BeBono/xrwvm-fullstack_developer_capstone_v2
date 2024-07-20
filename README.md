@@ -70,7 +70,7 @@ End-points fecthed:
 
 ***** 4. Start sentiment analyzer (IBM Cloud Engine) as a microservice (port 5000):
 
-/ We need this function to be able to see the reviews with the ico sentiment.
+/ We need this function to be able to see the reviews with the icon sentiment.
 
 cd xrwvm-fullstack_developer_capstone_v2/server/djangoapp/microservices
 docker build . -t us.icr.io/${SN_ICR_NAMESPACE}/senti_analyzer
