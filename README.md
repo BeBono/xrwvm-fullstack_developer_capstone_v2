@@ -21,7 +21,6 @@ python3 manage.py migrate
 python3 manage.py runserver
 
 
-
 ** 2/3 Run frontend with React:
 
 cd /home/project/xrwvm-fullstack_developer_capstone_v2/server/frontend
@@ -32,9 +31,12 @@ npm run build    // Run the following command to build the client.
 
 python3 manage.py createsuperuser
 
+
+
 ***** 2. Populate de CarMake and CarModel (local database SQLite):
 
-"/get_cars"
+root_url/get_cars
+
 
 
 ***** 3. Run Database End-points:
@@ -80,10 +82,14 @@ URL instance (example):
 https://sentianalyzer.1hcuc1j7fh38.us-south.codeengine.appdomain.cloud
 https://sentianalyzer.1iebwhj96cww.us-south.codeengine.appdomain.cloud
 
+
+
 ***** 5. Notes:
 
 Update always URLs:
 
--djangoapp/.env
--frontend/src/components/Dealers/Dealers.jsx
--djangoproj/settings.py (URLs allowed to CRSF)
+(...)djangoapp/.env
+
+(...)frontend/src/components/Dealers/Dealers.jsx
+
+(...)djangoproj/settings.py (URLs allowed to CRSF)
