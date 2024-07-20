@@ -57,11 +57,16 @@ https://albertocarb1-3030.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cog
 End-points fecthed:
 
 /fetchDealers
+
 /fetchDealers/:state
+
 /fetchDealer/:id
 
 /fetchReviews
+
 /fetchReviews/dealer/:id
+
+
 
 ***** 4. Start sentiment analyzer (IBM Cloud Engine) as a microservice (port 5000):
 
