@@ -12,7 +12,7 @@ const Dealers = () => {
 
  
   const dealer_url ="https://albertocarb1-3030.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/fetchDealers";
- 
+   
   //   const dealer_url = "https://albertocarb1-3030.theiadockernext-0-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/fetchDealers";
                   
   
